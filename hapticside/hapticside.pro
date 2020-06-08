@@ -23,6 +23,26 @@ CONFIG   -= app_bundle
 
 TEMPLATE = app
 
+CONFIG += use_osc 
+use_osc {
+    SOURCES += osc/osc/OscOutboundPacketStream.cpp  \
+               osc/osc/OscPrintReceivedElements.cpp \
+               osc/osc/OscReceivedElements.cpp \
+               osc/osc/OscTypes.cpp \
+               osc/ip/IpEndpointName.cpp \
+               osc/ip/win32/NetworkingUtils.cpp \
+               osc/ip/win32/UdpSocket.cpp
+    HEADERS += osc/osc/OscException.h \
+               osc/osc/OscOutboundPacketStream.h \
+               osc/osc/OscTypes.h \
+               osc/ip/IpEndpointName.h \
+               osc/ip/NetworkingUtils.h \
+               osc/ip/UdpSocket.h
+    INCLUDEPATH += osc/
+    INCLUDEPATH += osc/osc
+    LIBS+=-lWs2_32 -lwinmm
+} 
+
 unix {
 DEFINES += LINUX
 INCLUDEPATH += /home/kontron/chai3d-3.2.0/src
