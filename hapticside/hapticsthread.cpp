@@ -31,6 +31,9 @@ void HapticsThread::run()
         if(m_devices.length()==0){
 
             // Todo: implement e.g. a sinus cureve movement of "device"
+            lastPositionOrientationMutex.lock();
+            lastPos.p = cVector3d(0,0.1*sin(c.getCurrentTimeSeconds()),0);
+            lastPositionOrientationMutex.unlock();
 
             usleep(1000);
             continue;
