@@ -25,33 +25,37 @@ TEMPLATE = app
 
 CONFIG += use_osc 
 use_osc {
-    SOURCES += osc/osc/OscOutboundPacketStream.cpp  \
-               osc/osc/OscPrintReceivedElements.cpp \
-               osc/osc/OscReceivedElements.cpp \
-               osc/osc/OscTypes.cpp \
-               osc/ip/IpEndpointName.cpp \
-               osc/ip/win32/NetworkingUtils.cpp \
-               osc/ip/win32/UdpSocket.cpp
-    HEADERS += osc/osc/OscException.h \
-               osc/osc/OscOutboundPacketStream.h \
-               osc/osc/OscTypes.h \
-               osc/ip/IpEndpointName.h \
-               osc/ip/NetworkingUtils.h \
-               osc/ip/UdpSocket.h
-    INCLUDEPATH += osc/
-    INCLUDEPATH += osc/osc
-    LIBS+=-lWs2_32 -lwinmm
+  SOURCES += osc/osc/OscOutboundPacketStream.cpp  \
+             osc/osc/OscPrintReceivedElements.cpp \
+             osc/osc/OscReceivedElements.cpp \
+             osc/osc/OscTypes.cpp \
+             osc/ip/IpEndpointName.cpp \
+             osc/ip/win32/NetworkingUtils.cpp \
+             osc/ip/win32/UdpSocket.cpp
+  HEADERS += osc/osc/OscException.h \
+             osc/osc/OscOutboundPacketStream.h \
+             osc/osc/OscTypes.h \
+             osc/ip/IpEndpointName.h \
+             osc/ip/NetworkingUtils.h \
+            osc/ip/UdpSocket.h
+  INCLUDEPATH += osc/
+  INCLUDEPATH += osc/osc
+  LIBS+=-lWs2_32 -lwinmm
 } 
 
 unix {
+installfiles.files += hapticside
+installfiles.path = /usr/bin
+INSTALLS += installfiles
+
 DEFINES += LINUX
-INCLUDEPATH += /home/kontron/chai3d-3.2.0/src
-INCLUDEPATH += /home/kontron/chai3d-3.2.0/external/Eigen
-INCLUDEPATH += /home/kontron/chai3d-3.2.0/external/glew/include
+INCLUDEPATH += ../../chai3d-3.2.0/src
+INCLUDEPATH += ../../chai3d-3.2.0/external/Eigen
+INCLUDEPATH += ../../chai3d-3.2.0/external/glew/include
 QMAKE_CXXFLAGS += -std=c++0x
 
-LIBS += -L/home/kontron/chai3d-3.2.0/ -lchai3d
-LIBS += -L/home/kontron/chai3d-3.2.0/external/DHD/lib/lin-x86_64/ -ldrd
+LIBS += -L../../chai3d-3.2.0/ -lchai3d
+LIBS += -L../../chai3d-3.2.0/external/DHD/lib/lin-x86_64/ -ldrd
     LIBS += -lpthread
     LIBS += -lrt
     LIBS += -ldl
