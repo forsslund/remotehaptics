@@ -1,5 +1,5 @@
 #include "udpsender.h"
-#include "uhaptikfabriken.h"
+//#include "uhaptikfabriken.h"
 
 
 UDPSender::UDPSender(QObject *parent) :
@@ -15,7 +15,7 @@ void UDPSender::run()
 {
     udpSocket = new QUdpSocket();
 
-    using namespace haptikfabriken;
+    //using namespace haptikfabriken;
 
     /*
     HaptikfabrikenInterface hfab;
@@ -60,7 +60,7 @@ void UDPSender::run()
         */
 
 
-        usleep(1000L); //1ms
+        usleep(100); //1ms
     }
 
 

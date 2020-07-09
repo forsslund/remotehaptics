@@ -23,25 +23,25 @@ CONFIG   -= app_bundle
 
 TEMPLATE = app
 
-CONFIG += use_osc 
+CONFIG += use_osc 
 use_osc {
-    SOURCES += osc/osc/OscOutboundPacketStream.cpp  \
-               osc/osc/OscPrintReceivedElements.cpp \
-               osc/osc/OscReceivedElements.cpp \
-               osc/osc/OscTypes.cpp \
-               osc/ip/IpEndpointName.cpp \
-               osc/ip/win32/NetworkingUtils.cpp \
-               osc/ip/win32/UdpSocket.cpp
-    HEADERS += osc/osc/OscException.h \
-               osc/osc/OscOutboundPacketStream.h \
-               osc/osc/OscTypes.h \
-               osc/ip/IpEndpointName.h \
-               osc/ip/NetworkingUtils.h \
-               osc/ip/UdpSocket.h
-    INCLUDEPATH += osc/
-    INCLUDEPATH += osc/osc
-    LIBS+=-lWs2_32 -lwinmm
-} 
+SOURCES += osc/osc/OscOutboundPacketStream.cpp  \
+           osc/osc/OscPrintReceivedElements.cpp \
+           osc/osc/OscReceivedElements.cpp \
+           osc/osc/OscTypes.cpp \
+           osc/ip/IpEndpointName.cpp \
+           osc/ip/win32/NetworkingUtils.cpp \
+           osc/ip/win32/UdpSocket.cpp
+HEADERS += osc/osc/OscException.h \
+           osc/osc/OscOutboundPacketStream.h \
+           osc/osc/OscTypes.h \
+           osc/ip/IpEndpointName.h \
+           osc/ip/NetworkingUtils.h \
+           osc/ip/UdpSocket.h
+INCLUDEPATH += osc/
+INCLUDEPATH += osc/osc
+LIBS+=-lWs2_32 -lwinmm
+} 
 
 unix {
 DEFINES += LINUX
@@ -70,8 +70,11 @@ LIBS += -lHD
 
 # Chai3D Linking below
 win32{
-    # Specify your chai3d root folder
+    # Specify your chai3d root folder (vanilla)
     CHAI3D = c:/chai3d
+
+    # For haptikfabriken main api (default branch of github/forsslund/chai3d)
+    #CHAI3D = c:/Users/fsdator/Documents/chai3d
 
     # Turn off some warnings
     QMAKE_CXXFLAGS += /wd4100 # Ignore warning C4100 unreferenced formal parameter
@@ -113,6 +116,10 @@ win32{
 
     # If you are linking to a chai3d version that has the remotelib included
     #LIBS += -L$${CHAI3D}/external/remotehaptics/ -lremotehaptics
+
+    # For haptikfabriken
+    #LIBS += -L$${CHAI3D}/external/haptikfabrikenapi/ -lhaptikfabrikenapi -llibboost_chrono-vc140-mt-1_62 -llibboost_coroutine-vc140-mt-1_62 -llibboost_date_time-vc140-mt-1_62  -llibboost_regex-vc140-mt-1_62  -llibboost_system-vc140-mt-1_62  -llibboost_thread-vc140-mt-1_62
+
 }
 
 

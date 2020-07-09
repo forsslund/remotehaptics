@@ -35,7 +35,7 @@ void HapticsThread::run()
             lastPos.p = cVector3d(0,0.1*sin(c.getCurrentTimeSeconds()),0);
             lastPositionOrientationMutex.unlock();
 
-            usleep(1000);
+            usleep(100);
             continue;
         }
 
