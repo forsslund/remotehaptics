@@ -16,9 +16,9 @@ CONFIG += console
 # uncomment the following two and comment away TEMPLATE=app to
 # build the library!
 
-#CONFIG += staticlib
-#TEMPLATE = lib
-TEMPLATE = app
+CONFIG += staticlib
+TEMPLATE = lib
+#TEMPLATE = app
 
 SOURCES += libremotehaptics.cpp \
     networkhandler.cpp \

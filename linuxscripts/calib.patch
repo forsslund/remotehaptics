@@ -1,0 +1,34 @@
+diff -c /usr/share/3DTouch/examples/HD/console/Calibration/Calibration.c /usr/share/3DTouch/examples/HD/console/Calibration.new/Calibration.c
+*** /usr/share/3DTouch/examples/HD/console/Calibration/Calibration.c	2020-06-16 13:37:43.067801194 +0200
+--- /usr/share/3DTouch/examples/HD/console/Calibration.new/Calibration.c	2020-06-16 13:33:42.587808716 +0200
+***************
+*** 164,170 ****
+  
+  HDCallbackCode HDCALLBACK UpdateCalibrationCallback(void *pUserData)
+  {
+!     HDenum *calibrationStyle = (int *) pUserData;
+  
+      if (hdCheckCalibration() == HD_CALIBRATION_NEEDS_UPDATE)
+      {
+--- 164,170 ----
+  
+  HDCallbackCode HDCALLBACK UpdateCalibrationCallback(void *pUserData)
+  {
+!     HDenum *calibrationStyle = (HDenum *) pUserData;
+  
+      if (hdCheckCalibration() == HD_CALIBRATION_NEEDS_UPDATE)
+      {
+diff -c /usr/share/3DTouch/examples/HD/console/Calibration/Makefile /usr/share/3DTouch/examples/HD/console/Calibration.new/Makefile
+*** /usr/share/3DTouch/examples/HD/console/Calibration/Makefile	2020-06-16 13:37:43.067801194 +0200
+--- /usr/share/3DTouch/examples/HD/console/Calibration.new/Makefile	2020-06-16 13:33:42.587808716 +0200
+***************
+*** 1,4 ****
+! CC=gcc
+  CFLAGS+=-W -O2 -DNDEBUG -Dlinux
+  LIBS = -lHDU -lHD -lrt
+  
+--- 1,4 ----
+! CC=g++
+  CFLAGS+=-W -O2 -DNDEBUG -Dlinux
+  LIBS = -lHDU -lHD -lrt
+  
